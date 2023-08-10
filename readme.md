@@ -1,3 +1,9 @@
+# endpoint
+
+- /identify
+
+# Notes
+
 problem statement derived flow chart :
 
 - search for existing contacts using provided email or number
