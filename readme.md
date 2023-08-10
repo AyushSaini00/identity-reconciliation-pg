@@ -1,6 +1,17 @@
 # endpoint
 
-- /identify
+- /identify : https://identity-reconciliation-web-service.onrender.com/identify
+
+# example curl
+
+```bash
+curl --location 'https://identity-reconciliation-web-service.onrender.com/identify' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "example@provider.com",
+    "phoneNumber": "989898"
+}'
+```
 
 # Notes
 
