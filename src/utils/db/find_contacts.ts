@@ -4,11 +4,13 @@ interface FindContactProps {
   id?: number | null;
   email?: string | null;
   phoneNumber?: string | null;
+  linkedId?: number | null;
+  whereProps?: {};
 }
 
 const find_contacts = async (findContactProps: FindContactProps) => {
   try {
-    const { id, email, phoneNumber } = findContactProps;
+    const { id, email, phoneNumber, linkedId, whereProps } = findContactProps;
 
     const contacts = await prisma.contact.findMany({
       where: {
@@ -22,7 +24,14 @@ const find_contacts = async (findContactProps: FindContactProps) => {
           {
             phoneNumber: phoneNumber || undefined,
           },
+          {
+            linkedId: linkedId || undefined,
+          },
         ],
+        ...whereProps,
+      },
+      orderBy: {
+        createdAt: "asc", // oldest to newest
       },
     });
 

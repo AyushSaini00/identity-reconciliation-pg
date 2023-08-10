@@ -18,3 +18,7 @@ problem statement derived flow chart :
 
     - oldest contact will stay primary and will not be modifed
     - lastest contact will be update to a secondary contact
+
+abstractions :
+
+func => findPrimaryAndReturnAllPrimaryAndSecondaries
