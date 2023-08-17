@@ -8,6 +8,7 @@ var morgan_1 = __importDefault(require("morgan"));
 var helmet_1 = __importDefault(require("helmet"));
 var cors_1 = __importDefault(require("cors"));
 var error_res_1 = __importDefault(require("./utils/error_res"));
+var health_1 = __importDefault(require("../src/routes/health"));
 var identity_1 = __importDefault(require("../src/routes/identity"));
 var app = (0, express_1.default)();
 app.use((0, cors_1.default)());
@@ -16,6 +17,7 @@ app.use((0, helmet_1.default)());
 app.use((0, morgan_1.default)("dev"));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+app.use("/health", health_1.default);
 app.use("/identify", identity_1.default);
 app.use(function (req, res, next) {
     var error = new Error("Not found");
