@@ -3,6 +3,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 import error_res from "./utils/error_res";
+import healthRouter from "../src/routes/health";
 import identityRouter from "../src/routes/identity";
 
 interface Error {
@@ -19,6 +20,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/health", healthRouter);
 app.use("/identify", identityRouter);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
